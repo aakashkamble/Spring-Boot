@@ -1,0 +1,29 @@
+package com.springboot.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springboot.entity.User;
+import com.springboot.service.UserService;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@AllArgsConstructor
+public class UserController {
+
+	@Autowired
+	private UserService service;
+	
+	
+	@PostMapping("/createUser")
+	public ResponseEntity<User> createUserDetails(User user) {
+		User saveUser= service.createUser(user);
+		return new ResponseEntity<>(saveUser,HttpStatus.CREATED);
+		
+	}
+	
+}

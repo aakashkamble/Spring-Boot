@@ -1,0 +1,38 @@
+package com.student.studentSpring.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.student.studentSpring.dao.DeptDAo;
+import com.student.studentSpring.dao.StudentDAO;
+import com.student.studentSpring.dto.Department;
+import com.student.studentSpring.dto.Student;
+@RestController
+public class DepartmentController {
+	
+	
+		@Autowired
+		 DeptDAo deptDAO;
+		
+		
+		@PostMapping("/save")
+		public Department saveData(@RequestBody Department  student)
+		{
+			return deptDAO.saveDept(student);
+		}
+		
+		
+		@GetMapping("/get")
+		public List<Department> getAllDepartment()
+		{
+			return deptDAO.getAll();
+		}
+
+	}
+
+

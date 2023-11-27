@@ -1,0 +1,15 @@
+package com.springboot.exception;
+
+import java.time.LocalDateTime;
+
+public class ErrorDetails {
+	
+	private LocalDateTime dateTime;
+	private String messsage;
+	private String path;
+	private String errorCode;
+	
+	
+	
+
+}

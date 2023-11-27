@@ -1,0 +1,17 @@
+package com.springboot.mapper;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+import com.springboot.DTO.UserDTO;
+import com.springboot.entity.User;
+
+@Mapper
+public interface AutoUserMapper {
+	
+	@Mapping(source = "email",target = "emailAddress")
+	UserDTO mapToUserDTO(User user);
+	
+	User mapToUser(UserDTO userDTO);
+
+}

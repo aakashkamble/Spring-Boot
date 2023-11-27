@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserControllerTest" project="SpringBoot-RestFul-Webservices" tests="9" started="9" failures="0" errors="0" ignored="0">
+  <testsuite name="com.springboot.controller.UserControllerTest" time="3.753" displayname="UserControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]">
+    <testcase name="testGetAllUserDTO" classname="com.springboot.controller.UserControllerTest" time="3.662" displayname="testGetAllUserDTO()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetAllUserDTO()]"/>
+    <testcase name="testUpdateUser" classname="com.springboot.controller.UserControllerTest" time="0.033" displayname="testUpdateUser()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testUpdateUser()]"/>
+    <testcase name="testCreateUserDTO" classname="com.springboot.controller.UserControllerTest" time="0.005" displayname="testCreateUserDTO()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testCreateUserDTO()]"/>
+    <testcase name="testCreateUserDetails" classname="com.springboot.controller.UserControllerTest" time="0.006" displayname="testCreateUserDetails()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testCreateUserDetails()]"/>
+    <testcase name="testUpdateUserDTO" classname="com.springboot.controller.UserControllerTest" time="0.005" displayname="testUpdateUserDTO()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testUpdateUserDTO()]"/>
+    <testcase name="testDeleteUser" classname="com.springboot.controller.UserControllerTest" time="0.025" displayname="testDeleteUser()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testDeleteUser()]"/>
+    <testcase name="testGetUserDTOId" classname="com.springboot.controller.UserControllerTest" time="0.002" displayname="testGetUserDTOId()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetUserDTOId()]"/>
+    <testcase name="testGetAll" classname="com.springboot.controller.UserControllerTest" time="0.003" displayname="testGetAll()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetAll()]"/>
+    <testcase name="testGetUserId" classname="com.springboot.controller.UserControllerTest" time="0.003" displayname="testGetUserId()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetUserId()]"/>
+  </testsuite>
+</testrun>

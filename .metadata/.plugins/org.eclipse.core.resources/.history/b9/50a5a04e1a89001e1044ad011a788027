@@ -1,0 +1,29 @@
+package com.student.studentSpring.dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.student.studentSpring.dto.Department;
+import com.student.studentSpring.repository.DepartmentRepository;
+@Repository
+public class DeptDAo {
+	
+	DepartmentRepository repo;
+	
+	public Department saveDept(Department dept)
+	{
+		return repo.save(dept);
+	}
+	
+	
+	public List<Department> getAll()
+	{
+		return repo.findAll();
+	}
+
+
+	
+
+}

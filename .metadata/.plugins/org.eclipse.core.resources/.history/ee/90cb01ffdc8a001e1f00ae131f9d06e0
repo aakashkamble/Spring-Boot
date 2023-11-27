@@ -1,0 +1,103 @@
+package com.springboot.service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.springboot.DTO.UserDTO;
+import com.springboot.entity.User;
+import com.springboot.exception.EmailAlreadyExistsException;
+import com.springboot.exception.ResourceNotFoundException;
+import com.springboot.mapper.UserMapper;
+import com.springboot.repository.UserRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class UserService {
+	
+	@Autowired
+	private UserRepository repo;
+	
+	@Autowired
+	private ModelMapper mapper;
+	
+	public User createUser(User user) {
+		return repo.save(user);
+	}
+	
+	public User getUserById(long id) {
+		Optional<User> optional= repo.findById(id);
+		return optional.get();
+		
+	}
+	
+	public UserDTO getUserDTOById(long id) {
+		User user= repo.findById(id).orElseThrow(
+				()-> new ResourceNotFoundException("User", "id", id));
+		
+		//return UserMapper.mapToUserDTO(user);
+		return mapper.map(user, UserDTO.class);
+		
+	}
+	
+	
+	public List<User> getAllUsers() {
+		return repo.findAll();
+	}
+	
+	public List<UserDTO> getAllUserDTO()
+	{
+		List<User> users=repo.findAll();
+		return users.stream().map((user)->mapper.map(user, UserDTO.class)).collect(Collectors.toList());
+	}
+	public User updateUser(User user) {
+		User existing=repo.findById(user.getId()).orElseThrow(
+				()-> new ResourceNotFoundException("User", "id", user.getId()));
+		existing.setFirstName(user.getFirstName());
+		existing.setLastName(user.getLastName());
+		existing.setEmail(user.getEmail());
+		return repo.save(existing);
+	}
+	
+	public UserDTO updateUserDTO(UserDTO user) {
+		User update=repo.findById(user.getId()).get();
+		update.setFirstName(user.getFirstName());
+		update.setLastName(user.getLastName());
+		update.setEmail(user.getEmail());
+		//return UserMapper.mapToUserDTO(update);
+		return mapper.map(update, UserDTO.class);
+	}
+	
+	public void deleteUser(long id) {
+		User existing=repo.findById(id).orElseThrow(
+				()-> new ResourceNotFoundException("User", "id", id));
+		repo.deleteById(id);
+	}
+	
+	public UserDTO createUserDTO(UserDTO userDTO) {
+		
+		//convert UserDTO into User JPA Entity
+		//User user=UserMapper.mapToUser(userDTO);
+		
+		Optional<User> optional=repo.findByEmail(userDTO.getEmail());
+		
+		if(optional.isPresent()) {
+			throw new EmailAlreadyExistsException("Email Already Exists")
+		}
+		
+		User user=mapper.map(userDTO, User.class);
+		User savedUser=repo.save(user);
+		
+		//convert User JPA Entity into UserDTO
+//		UserDTO uDto=UserMapper.mapToUserDTO(savedUser);
+		UserDTO uDto=mapper.map(savedUser, UserDTO.class);
+		return uDto;
+	}
+
+}

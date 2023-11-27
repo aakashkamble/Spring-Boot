@@ -1,0 +1,17 @@
+package com.springboot.service;
+
+import org.springframework.stereotype.Service;
+
+import com.springboot.entity.User;
+import com.springboot.repository.UserRepository;
+
+@Service
+public class UserService {
+	
+	private UserRepository repo;
+	
+	public User createUser(User user) {
+		return repo.save(user);
+	}
+
+}

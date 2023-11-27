@@ -1,0 +1,87 @@
+package com.springboot.service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.springboot.DTO.UserDTO;
+import com.springboot.entity.User;
+import com.springboot.mapper.UserMapper;
+import com.springboot.repository.UserRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class UserService {
+	
+	@Autowired
+	private UserRepository repo;
+	
+	@Autowired
+	private ModelMapper mapper;
+	
+	public User createUser(User user) {
+		return repo.save(user);
+	}
+	
+	public User getUserById(long id) {
+		Optional<User> optional= repo.findById(id);
+		return optional.get();
+		
+	}
+	
+	public UserDTO getUserDTOById(long id) {
+		Optional<User> optional= repo.findById(id);
+		User user= optional.get();
+		return UserMapper.mapToUserDTO(user);
+		
+	}
+	
+	
+	public List<User> getAllUsers() {
+		return repo.findAll();
+	}
+	
+	public List<UserDTO> getAllUserDTO()
+	{
+		List<User> user=repo.findAll();
+		return user.stream().map(UserMapper :: mapToUserDTO).collect(Collectors.toList());
+	}
+	public User updateUser(User user) {
+		User existing=repo.findById(user.getId()).get();
+		existing.setFirstName(user.getFirstName());
+		existing.setLastName(user.getLastName());
+		existing.setEmail(user.getEmail());
+		return repo.save(existing);
+	}
+	
+	public UserDTO updateUserDTO(UserDTO user) {
+		User update=repo.findById(user.getId()).get();
+		update.setFirstName(user.getFirstName());
+		update.setLastName(user.getLastName());
+		update.setEmail(user.getEmail());
+		return UserMapper.mapToUserDTO(update);
+	}
+	
+	public void deleteUser(long id) {
+		repo.deleteById(id);
+	}
+	
+	public UserDTO createUserDTO(UserDTO userDTO) {
+		
+		//convert UserDTO into User JPA Entity
+		User user=UserMapper.mapToUser(userDTO);
+		
+		User savedUser=repo.save(user);
+		
+		//convert User JPA Entity into UserDTO
+		UserDTO uDto=UserMapper.mapToUserDTO(savedUser);
+		return uDto;
+	}
+
+}

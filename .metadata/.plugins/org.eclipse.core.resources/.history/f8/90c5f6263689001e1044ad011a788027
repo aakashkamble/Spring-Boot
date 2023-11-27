@@ -1,0 +1,110 @@
+package com.student.studentSpring.controller;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.student.studentSpring.dao.StudentDAO;
+import com.student.studentSpring.dto.Student;
+import com.student.studentSpring.controller.StudentController;
+
+public class StudentControllerTest {
+
+    @Mock
+    private StudentDAO studentDAO;
+
+    @InjectMocks
+    private StudentController studentController;
+
+    @BeforeEach
+    public void setup() {
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testSaveData() {
+        // Arrange
+        Student student = new Student(); // Set up your test data
+
+        when(studentDAO.saveEmployee(any(Student.class))).thenReturn(student);
+
+        // Act
+        ResponseEntity<Student> responseEntity = studentController.saveData(student);
+
+        // Assert
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertNotNull(responseEntity.getBody());
+        assertEquals(student, responseEntity.getBody());
+    }
+
+    @Test
+    public void testGetAllEmployee() {
+        // Arrange
+        List<Student> students = Arrays.asList(new Student(), new Student()); // Set up your test data
+
+        when(studentDAO.getAll()).thenReturn(students);
+
+        // Act
+        List<Student> result = studentController.getAllEmployee();
+
+        // Assert
+        assertEquals(students.size(), result.size());
+    }
+
+    @Test
+    public void testGetById() {
+        // Arrange
+        int id = 1;
+        Student student = new Student(); // Set up your test data
+
+        when(studentDAO.getById(eq(id))).thenReturn(student);
+
+        // Act
+        Student result = studentController.getId(id);
+
+        // Assert
+        assertNotNull(result);
+        assertEquals(student, result);
+    }
+
+    @Test
+    public void testDelete() {
+        // Arrange
+        doNothing().when(studentDAO).deletedate();
+
+        // Act
+        ResponseEntity<Void> responseEntity = studentController.delete();
+
+        // Assert
+        assertEquals(HttpStatus.NO_CONTENT, responseEntity.getStatusCode());
+    }
+
+    @Test
+    public void testDeleteById() {
+        // Arrange
+        int id = 1;
+        doNothing().when(studentDAO).deleteByIdStudentData(eq(id));
+
+        // Act
+        ResponseEntity<Void> responseEntity = studentController.deleteById(id);
+
+        // Assert
+        assertEquals(HttpStatus.NO_CONTENT, responseEntity.getStatusCode());
+    }
+}

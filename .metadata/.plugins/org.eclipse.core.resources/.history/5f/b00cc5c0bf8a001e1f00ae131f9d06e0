@@ -1,0 +1,47 @@
+package com.springboot.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.springboot.entity.User;
+import com.springboot.repository.UserRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class UserService {
+	
+	@Autowired
+	private UserRepository repo;
+	
+	public User createUser(User user) {
+		return repo.save(user);
+	}
+	
+	public User getUserById(long id) {
+		Optional<User> optional= repo.findById(id);
+		return optional.get();
+		
+	}
+	
+	public List<User> getAllUsers() {
+		return repo.findAll();
+	}
+	
+	public User updateUser(User user) {
+		User existing=repo.findById(user.getId()).get();
+		existing.setFirstName(user.getFirstName());
+		existing.setLastName(user.getLastName());
+		existing.setEmail(user.getEmail());
+		return repo.save(existing);
+	}
+	
+	public void deleteUser(long id) {
+		repo.deleteById(id);
+	}
+
+}

@@ -1,0 +1,72 @@
+package com.student.studentSpring.controller;
+
+import java.util.List;
+
+import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.student.studentSpring.dao.StudentDAO;
+import com.student.studentSpring.dto.Student;
+
+
+@RestController
+public class StudentController {
+	@Autowired
+	StudentDAO studentDAO;
+	
+	
+	 private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
+
+	
+	@PostMapping("/add")
+	public Student saveData(@RequestBody Student student)
+	{
+		 logger.info("Adding student: {}", student);
+		return studentDAO.saveEmployee(student);
+	}
+	
+	
+	@GetMapping("/get")
+	public List<Student> getAllEmployee()
+	{
+		 logger.info("Getting All student Data: {}");
+		return studentDAO.getAll();
+	}
+	@GetMapping("/get/{id}")
+	public Student getId(int id) {
+		logger.info("Getting All student Data using Id: {}",id);
+		return studentDAO.getById(id);
+	}
+	
+	@DeleteMapping("/delete")
+	public ResponseEntity<Void> delete() {
+		logger.info("Delete student Data: {}");
+		studentDAO.deletedate();
+		return null;
+	}
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Void> deleteById(int id) {
+		logger.info("deletting All student Data using Id: {}",id);
+		studentDAO.deleteByIdStudentData(id);
+		return null;
+	}
+
+
+	public Object getStatusCode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

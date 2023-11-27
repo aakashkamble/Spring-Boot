@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Assignment" project="Assignment" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="com.student.studentSpring.controller.StudentControllerTest" time="1.114" displayname="StudentControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.student.studentSpring.controller.StudentControllerTest]">
+    <testcase name="testSaveData" classname="com.student.studentSpring.controller.StudentControllerTest" time="1.097" displayname="testSaveData()" uniqueid="[engine:junit-jupiter]/[class:com.student.studentSpring.controller.StudentControllerTest]/[method:testSaveData()]"/>
+    <testcase name="testGetId" classname="com.student.studentSpring.controller.StudentControllerTest" time="0.004" displayname="testGetId()" uniqueid="[engine:junit-jupiter]/[class:com.student.studentSpring.controller.StudentControllerTest]/[method:testGetId()]"/>
+    <testcase name="testGetAllEmployee" classname="com.student.studentSpring.controller.StudentControllerTest" time="0.002" displayname="testGetAllEmployee()" uniqueid="[engine:junit-jupiter]/[class:com.student.studentSpring.controller.StudentControllerTest]/[method:testGetAllEmployee()]"/>
+    <testcase name="testDeleteById" classname="com.student.studentSpring.controller.StudentControllerTest" time="0.003" displayname="testDeleteById()" uniqueid="[engine:junit-jupiter]/[class:com.student.studentSpring.controller.StudentControllerTest]/[method:testDeleteById()]"/>
+    <testcase name="testDelete" classname="com.student.studentSpring.controller.StudentControllerTest" time="0.003" displayname="testDelete()" uniqueid="[engine:junit-jupiter]/[class:com.student.studentSpring.controller.StudentControllerTest]/[method:testDelete()]"/>
+  </testsuite>
+  <testsuite name="com.student.studentSpring.StudentSpringApplicationTests" time="0.014" displayname="StudentSpringApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.student.studentSpring.StudentSpringApplicationTests]">
+    <testcase name="contextLoads" classname="com.student.studentSpring.StudentSpringApplicationTests" time="0.014" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:com.student.studentSpring.StudentSpringApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+</testrun>

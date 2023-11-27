@@ -1,0 +1,133 @@
+package com.springboot.controller;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.springboot.DTO.UserDTO;
+import com.springboot.entity.User;
+import com.springboot.service.UserService;
+
+@RunWith(MockitoJUnitRunner.class)
+public class UserControllerTest {
+
+    @InjectMocks
+    private UserController userController;
+
+    @Mock
+    private UserService userService;
+
+    @Test
+    public void testCreateUserDetails() {
+        User user = new User();
+        when(userService.createUser(any(User.class))).thenReturn(user);
+
+        ResponseEntity<User> responseEntity = userController.createUserDetails(user);
+
+        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
+        assertEquals(user, responseEntity.getBody());
+    }
+
+    @Test
+    public void testCreateUserDTO() {
+        UserDTO userDTO = new UserDTO();
+        when(userService.createUserDTO(any(UserDTO.class))).thenReturn(userDTO);
+
+        ResponseEntity<UserDTO> responseEntity = userController.createUserDTO(userDTO);
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(userDTO, responseEntity.getBody());
+    }
+
+    @Test
+    public void testGetUserId() {
+        long userId = 1L;
+        User user = new User();
+        when(userService.getUserById(userId)).thenReturn(user);
+
+        ResponseEntity<User> responseEntity = userController.getUserId(userId);
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(user, responseEntity.getBody());
+    }
+
+    @Test
+    public void testGetUserDTOId() {
+        long userId = 1L;
+        UserDTO userDTO = new UserDTO();
+        when(userService.getUserDTOById(userId)).thenReturn(userDTO);
+
+        ResponseEntity<UserDTO> responseEntity = userController.getUserDTOId(userId);
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(userDTO, responseEntity.getBody());
+    }
+
+    @Test
+    public void testGetAll() {
+        List<User> userList = Arrays.asList(new User(), new User());
+        when(userService.getAllUsers()).thenReturn(userList);
+
+        ResponseEntity<List<User>> responseEntity = userController.getAll();
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(userList, responseEntity.getBody());
+    }
+
+    @Test
+    public void testGetAllUserDTO() {
+        List<UserDTO> userDTOList = Arrays.asList(new UserDTO(), new UserDTO());
+        when(userService.getAllUserDTO()).thenReturn(userDTOList);
+
+        ResponseEntity<List<UserDTO>> responseEntity = userController.getAllUserDTO();
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(userDTOList, responseEntity.getBody());
+    }
+
+    @Test
+    public void testUpdateUser() {
+        long userId = 1L;
+        User user = new User();
+        when(userService.updateUser(any(User.class))).thenReturn(user);
+
+        ResponseEntity<User> responseEntity = userController.updateUser(userId, user);
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(user, responseEntity.getBody());
+    }
+
+    @Test
+    public void testUpdateUserDTO() {
+        long userId = 1L;
+        UserDTO userDTO = new UserDTO();
+        when(userService.updateUserDTO(any(UserDTO.class))).thenReturn(userDTO);
+
+        ResponseEntity<UserDTO> responseEntity = userController.updateUserDTO(userId, userDTO);
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals(userDTO, responseEntity.getBody());
+    }
+
+    @Test
+    public void testDeleteUser() {
+        long userId = 1L;
+
+        ResponseEntity<String> responseEntity = userController.deleteUser(userId);
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertEquals("User delete Sucessfully", responseEntity.getBody());
+
+        verify(userService, times(1)).deleteUser(userId);
+    }
+}

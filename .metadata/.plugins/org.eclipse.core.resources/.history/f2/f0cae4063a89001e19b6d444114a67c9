@@ -1,0 +1,105 @@
+package com.student.studentSpring.controller;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.ResponseEntity;
+
+import com.student.studentSpring.dao.StudentDAO;
+import com.student.studentSpring.dto.Student;
+
+public class StudentControllerTest {
+
+    @InjectMocks
+    private StudentController studentController;
+
+    @Mock
+    private StudentDAO studentDAO;
+
+    @BeforeEach
+    public void init() {
+        MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    public void testSaveData() {
+        Student student = new Student();
+        student.setId(1);
+        student.setName("Akash");
+        student.setAge(23);
+        student.setSalary(30000.0);
+
+        when(studentDAO.saveEmployee(any(Student.class))).thenReturn(student);
+
+        Student savedStudent = studentController.saveData(student);
+
+        assertNotNull(savedStudent);
+        assertEquals(1, savedStudent.getId());
+        assertEquals("John", savedStudent.getName());
+
+        verify(studentDAO, times(1)).saveEmployee(any(Student.class));
+    }
+
+    @Test
+    public void testGetAllEmployee() {
+        List<Student> studentList = new ArrayList<>();
+        Student s=new Student(1, "Akash", 300000.0, 34);
+        
+        studentList.add(s);
+
+        when(studentDAO.getAll()).thenReturn(studentList);
+
+        List<Student> result = studentController.getAllEmployee();
+
+        assertNotNull(result);
+        assertEquals(2, result.size());
+
+        verify(studentDAO, times(1)).getAll();
+    }
+
+    @Test
+    public void testGetId() {
+        int studentId = 1;
+        Student student = new Student(1, "Akash", 30000.0, 23);
+
+        when(studentDAO.getById(studentId)).thenReturn(student);
+
+        Student result = studentController.getId(studentId);
+
+        assertNotNull(result);
+        assertEquals(1, result.getId());
+        assertEquals("Akash", result.getName());
+
+        verify(studentDAO, times(1)).getById(studentId);
+    }
+
+    @Test
+    public void testDelete() {
+        ResponseEntity<Void> response = studentController.delete();
+
+        // Assuming that delete() method always returns null ResponseEntity
+        assertEquals(null, response);
+
+        verify(studentDAO, times(1)).deletedate();
+    }
+
+    @Test
+    public void testDeleteById() {
+        int studentId = 1;
+        ResponseEntity<Void> response = studentController.deleteById(studentId);
+
+        // Assuming that deleteByIdStudentData() method always returns null ResponseEntity
+        assertEquals(null, response);
+
+        verify(studentDAO, times(1)).deleteByIdStudentData(studentId);
+    }
+}

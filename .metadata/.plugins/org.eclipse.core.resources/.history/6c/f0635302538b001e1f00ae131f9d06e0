@@ -1,0 +1,150 @@
+package com.springboot.controller;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import com.springboot.DTO.UserDTO;
+import com.springboot.entity.User;
+import com.springboot.exception.ResourceNotFoundException;
+import com.springboot.service.UserService;
+
+public class UserControllerTest {
+
+    @Mock
+    private UserService userService;
+
+    @InjectMocks
+    private UserController userController;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    public void testCreateUserDetails() {
+        User user = new User(/* set user properties here */);
+        when(userService.createUser(user)).thenReturn(user);
+
+        ResponseEntity<User> response = userController.createUserDetails(user);
+
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertEquals(user, response.getBody());
+    }
+
+    @Test
+    public void testCreateUserDTO() {
+        UserDTO userDTO = new UserDTO(0, null, null, null/* set userDTO properties here */);
+        when(userService.createUserDTO(userDTO)).thenReturn(userDTO);
+
+        ResponseEntity<UserDTO> response = userController.createUserDTO(userDTO);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(userDTO, response.getBody());
+    }
+
+    @Test
+    public void testGetUserId() {
+        long userId = 1L;
+        User user = new User(/* set user properties here */);
+        when(userService.getUserById(userId)).thenReturn(user);
+
+        ResponseEntity<User> response = userController.getUserId(userId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(user, response.getBody());
+    }
+
+    @Test
+    public void testGetUserDTOId() {
+        long userId = 1L;
+        UserDTO userDTO = new UserDTO(userId, null, null, null/* set userDTO properties here */);
+        when(userService.getUserDTOById(userId)).thenReturn(userDTO);
+
+        ResponseEntity<UserDTO> response = userController.getUserDTOId(userId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(userDTO, response.getBody());
+    }
+
+    @Test
+    public void testGetAll() {
+        List<User> userList = Arrays.asList(new User(/* set user properties here */));
+        when(userService.getAllUsers()).thenReturn(userList);
+
+        ResponseEntity<List<User>> response = userController.getAll();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(userList, response.getBody());
+    }
+
+    @Test
+    public void testGetAllUserDTO() {
+        List<UserDTO> userDTOList = Arrays.asList(new UserDTO(/* set userDTO properties here */));
+        when(userService.getAllUserDTO()).thenReturn(userDTOList);
+
+        ResponseEntity<List<UserDTO>> response = userController.getAllUserDTO();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(userDTOList, response.getBody());
+    }
+
+    @Test
+    public void testUpdateUser() {
+        long userId = 1L;
+        User user = new User(/* set user properties here */);
+        when(userService.updateUser(user)).thenReturn(user);
+
+        ResponseEntity<User> response = userController.updateUser(userId, user);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(user, response.getBody());
+    }
+
+    @Test
+    public void testUpdateUserDTO() {
+        long userId = 1L;
+        UserDTO userDTO = new UserDTO(/* set userDTO properties here */);
+        when(userService.updateUserDTO(userDTO)).thenReturn(userDTO);
+
+        ResponseEntity<UserDTO> response = userController.updateUserDTO(userId, userDTO);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(userDTO, response.getBody());
+    }
+
+    @Test
+    public void testDeleteUser() {
+        long userId = 1L;
+
+        ResponseEntity<String> response = userController.deleteUser(userId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("User delete Sucessfully", response.getBody());
+
+        verify(userService, times(1)).deleteUser(userId);
+    }
+
+    @Test
+    public void testResourceNotFoundExceptionHandler() {
+        ResourceNotFoundException exception = new ResourceNotFoundException("User not found");
+        ResponseEntity<ErrorDetails> response = userController.handleResourceNotFoundException(exception, null);
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        assertEquals("User not found", response.getBody().getMessage());
+        // Add more assertions based on your ErrorDetails class
+    }
+}

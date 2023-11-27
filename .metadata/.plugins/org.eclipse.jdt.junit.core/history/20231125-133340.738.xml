@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserControllerTest" project="SpringBoot-RestFul-Webservices" tests="12" started="12" failures="1" errors="11" ignored="0">
+  <testsuite name="com.springboot.controller.UserControllerTest" time="2.484" displayname="UserControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]">
+    <testcase name="testGetUserIdWithInvalidId" classname="com.springboot.controller.UserControllerTest" time="0.029" displayname="testGetUserIdWithInvalidId()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetUserIdWithInvalidId()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.springboot.service.UserService.getUserById(long)" because "this.userService" is null&#13;
+	at com.springboot.controller.UserControllerTest.testGetUserIdWithInvalidId(UserControllerTest.java:100)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetAllUserDTO" classname="com.springboot.controller.UserControllerTest" time="0.002" displayname="testGetAllUserDTO()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetAllUserDTO()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.springboot.service.UserService.getAllUserDTO()" because "this.userService" is null&#13;
+	at com.springboot.controller.UserControllerTest.testGetAllUserDTO(UserControllerTest.java:141)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testUpdateUser" classname="com.springboot.controller.UserControllerTest" time="2.406" displayname="testUpdateUser()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testUpdateUser()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.springboot.service.UserService.updateUser(com.springboot.entity.User)" because "this.userService" is null&#13;
+	at com.springboot.controller.UserControllerTest.testUpdateUser(UserControllerTest.java:152)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testCreateUserDetailsWithInvalidUser" classname="com.springboot.controller.UserControllerTest" time="0.019" displayname="testCreateUserDetailsWithInvalidUser()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testCreateUserDetailsWithInvalidUser()]">
+      <failure>
+        <expected>class com.springboot.exception.ResourceNotFoundException</expected>
+        <actual>class java.lang.NullPointerException</actual>
+        org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: &lt;com.springboot.exception.ResourceNotFoundException&gt; but was: &lt;java.lang.NullPointerException&gt;&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)&#13;
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)&#13;
+	at com.springboot.controller.UserControllerTest.testCreateUserDetailsWithInvalidUser(UserControllerTest.java:75)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+Caused by: java.lang.NullPointerException: Cannot invoke "com.springboot.controller.UserController.createUserDetails(com.springboot.entity.User)" because "this.userController" is null&#13;
+	at com.springboot.controller.UserControllerTest.lambda$0(UserControllerTest.java:75)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)&#13;
+	... 6 more&#13;
+&#13;
+
+      </failure>
+    </testcase>
+    <testcase name="testCreateUserDTO" classname="com.springboot.controller.UserControllerTest" time="0.004" displayname="testCreateUserDTO()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testCreateUserDTO()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.springboot.service.UserService.createUserDTO(com.springboot.DTO.UserDTO)" because "this.userService" is null&#13;
+	at com.springboot.controller.UserControllerTest.testCreateUserDTO(UserControllerTest.java:80)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testCreateUserDetails" classname="com.springboot.controller.UserControllerTest" time="0.002" displayname="testCreateUserDetails()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testCreateUserDetails()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.springboot.service.UserService.createUser(com.springboot.entity.User)" because "this.userService" is null&#13;
+	at com.springboot.controller.UserControllerTest.testCreateUserDetails(UserControllerTest.java:63)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testUpdateUserDTO" classname="com.springboot.controller.UserControllerTest" time="0.002" displayname="testUpdateUserDTO()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testUpdateUserDTO()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.springboot.service.UserService.updateUserDTO(com.springboot.DTO.UserDTO)" because "this.userService" is null&#13;
+	at com.springboot.controller.UserControllerTest.testUpdateUserDTO(UserControllerTest.java:164)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testDeleteUser" classname="com.springboot.controller.UserControllerTest" time="0.002" displayname="testDeleteUser()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testDeleteUser()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.springboot.controller.UserController.deleteUser(long)" because "this.userController" is null&#13;
+	at com.springboot.controller.UserControllerTest.testDeleteUser(UserControllerTest.java:177)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetUserDTOId" classname="com.springboot.controller.UserControllerTest" time="0.001" displayname="testGetUserDTOId()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetUserDTOId()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.springboot.service.UserService.getUserDTOById(long)" because "this.userService" is null&#13;
+	at com.springboot.controller.UserControllerTest.testGetUserDTOId(UserControllerTest.java:107)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetAll" classname="com.springboot.controller.UserControllerTest" time="0.002" displayname="testGetAll()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetAll()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.springboot.service.UserService.getAllUsers()" because "this.userService" is null&#13;
+	at com.springboot.controller.UserControllerTest.testGetAll(UserControllerTest.java:127)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetUserDTOIdWithInvalidId" classname="com.springboot.controller.UserControllerTest" time="0.002" displayname="testGetUserDTOIdWithInvalidId()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetUserDTOIdWithInvalidId()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.springboot.service.UserService.getUserDTOById(long)" because "this.userService" is null&#13;
+	at com.springboot.controller.UserControllerTest.testGetUserDTOIdWithInvalidId(UserControllerTest.java:117)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testGetUserId" classname="com.springboot.controller.UserControllerTest" time="0.001" displayname="testGetUserId()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetUserId()]">
+      <error>java.lang.NullPointerException: Cannot invoke "com.springboot.service.UserService.getUserById(long)" because "this.userService" is null&#13;
+	at com.springboot.controller.UserControllerTest.testGetUserId(UserControllerTest.java:90)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

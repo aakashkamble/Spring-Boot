@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenCheckoutLocationPage">
+		<list key="scmUrl">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\AKNAMDEV\Downloads\SpringBoot-Rest-API"/>
+			<item value="C:\Users\AKNAMDEV\Documents\Advanced Java\Spring Boot\CompanySpring"/>
+			<item value="C:\Users\AKNAMDEV\Downloads\SpringBoot-Angular8-Login-Registration-for-JavaGuides.net-master (1)\SpringBoot-Angular8-Login-Registration-for-JavaGuides.net-master\springBoot-auth"/>
+			<item value="C:\Users\AKNAMDEV\Downloads\springboot-angular-registration-master\springboot-angular-registration-master\spring-angular-registration"/>
+			<item value="C:\Users\AKNAMDEV\Downloads\Loginpage1 (1)\Loginpage1"/>
+			<item value="C:\Users\AKNAMDEV\Downloads\PracticeDemo"/>
+			<item value="C:\Users\AKNAMDEV\Downloads\Practice"/>
+			<item value="C:\Users\AKNAMDEV\Downloads\OnlinePlantNurseryApplication_spring (3)"/>
+			<item value="C:\Users\AKNAMDEV\Documents\Advanced Java\Spring Boot\Assignment\studentSpring"/>
+			<item value="C:\Users\AKNAMDEV\Downloads\Assignment"/>
+			<item value="C:\Users\AKNAMDEV\Documents\Advanced Java\Spring Boot\Food-App-Spring-master"/>
+			<item value="C:\Users\AKNAMDEV\Documents\Advanced Java\Spring Boot\FoodApp"/>
+			<item value="C:\Users\AKNAMDEV\Documents\Advanced Java\Spring Boot\TeacherSpring"/>
+			<item value="C:\Users\AKNAMDEV\Documents\Advanced Java\Spring Boot\studentSpring"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="com.practice"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="Demo"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

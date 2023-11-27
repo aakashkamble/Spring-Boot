@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="SpringBoot-RestFul-Webservices" project="SpringBoot-RestFul-Webservices" tests="13" started="13" failures="3" errors="0" ignored="0">
+  <testsuite name="com.springboot.controller.UserControllerTest" time="3.799" displayname="UserControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]">
+    <testcase name="testGetUserIdWithInvalidId" classname="com.springboot.controller.UserControllerTest" time="3.71" displayname="testGetUserIdWithInvalidId()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetUserIdWithInvalidId()]">
+      <failure>org.opentest4j.AssertionFailedError: Expected com.springboot.exception.ResourceNotFoundException to be thrown, but nothing was thrown.&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)&#13;
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)&#13;
+	at com.springboot.controller.UserControllerTest.testGetUserIdWithInvalidId(UserControllerTest.java:114)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testGetAllUserDTO" classname="com.springboot.controller.UserControllerTest" time="0.004" displayname="testGetAllUserDTO()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetAllUserDTO()]"/>
+    <testcase name="testUpdateUser" classname="com.springboot.controller.UserControllerTest" time="0.015" displayname="testUpdateUser()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testUpdateUser()]"/>
+    <testcase name="testCreateUserDetailsWithInvalidUser" classname="com.springboot.controller.UserControllerTest" time="0.006" displayname="testCreateUserDetailsWithInvalidUser()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testCreateUserDetailsWithInvalidUser()]">
+      <failure>org.opentest4j.AssertionFailedError: Expected com.springboot.exception.ResourceNotFoundException to be thrown, but nothing was thrown.&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)&#13;
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)&#13;
+	at com.springboot.controller.UserControllerTest.testCreateUserDetailsWithInvalidUser(UserControllerTest.java:87)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testCreateUserDTO" classname="com.springboot.controller.UserControllerTest" time="0.006" displayname="testCreateUserDTO()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testCreateUserDTO()]"/>
+    <testcase name="testCreateUserDetails" classname="com.springboot.controller.UserControllerTest" time="0.004" displayname="testCreateUserDetails()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testCreateUserDetails()]"/>
+    <testcase name="testUpdateUserDTO" classname="com.springboot.controller.UserControllerTest" time="0.003" displayname="testUpdateUserDTO()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testUpdateUserDTO()]"/>
+    <testcase name="testDeleteUser" classname="com.springboot.controller.UserControllerTest" time="0.022" displayname="testDeleteUser()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testDeleteUser()]"/>
+    <testcase name="testGetUserDTOId" classname="com.springboot.controller.UserControllerTest" time="0.006" displayname="testGetUserDTOId()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetUserDTOId()]"/>
+    <testcase name="testGetAll" classname="com.springboot.controller.UserControllerTest" time="0.003" displayname="testGetAll()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetAll()]"/>
+    <testcase name="testGetUserDTOIdWithInvalidId" classname="com.springboot.controller.UserControllerTest" time="0.006" displayname="testGetUserDTOIdWithInvalidId()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetUserDTOIdWithInvalidId()]">
+      <failure>org.opentest4j.AssertionFailedError: Expected com.springboot.exception.ResourceNotFoundException to be thrown, but nothing was thrown.&#13;
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)&#13;
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)&#13;
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)&#13;
+	at com.springboot.controller.UserControllerTest.testGetUserDTOIdWithInvalidId(UserControllerTest.java:131)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="testGetUserId" classname="com.springboot.controller.UserControllerTest" time="0.003" displayname="testGetUserId()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.controller.UserControllerTest]/[method:testGetUserId()]"/>
+  </testsuite>
+  <testsuite name="com.springboot.SpringBootRestFulWebservicesApplicationTests" time="0.02" displayname="SpringBootRestFulWebservicesApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.springboot.SpringBootRestFulWebservicesApplicationTests]">
+    <testcase name="contextLoads" classname="com.springboot.SpringBootRestFulWebservicesApplicationTests" time="0.02" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:com.springboot.SpringBootRestFulWebservicesApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+</testrun>
